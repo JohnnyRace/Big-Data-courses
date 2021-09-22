@@ -1,0 +1,979 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%md\n<span style=\"color:red\"> __Requirements:__ </span>\n\n   - <span style=\"color:red\">Ubuntu 18.04 LTS</span>\n   - <span style=\"color:red\">Hadoop 2.10</span>\n   - <span style=\"color:red\">Spark 2.4</span>",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-14T14:43:09+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p><span style=\"color:red\"> <strong>Requirements:</strong> </span></p>\n<ul>\n<li><span style=\"color:red\">Ubuntu 18.04 LTS</span></li>\n<li><span style=\"color:red\">Hadoop 2.10</span></li>\n<li><span style=\"color:red\">Spark 2.4</span></li>\n</ul>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631604736728_1133053204",
+      "id": "paragraph_1631604736728_1133053204",
+      "dateCreated": "2021-09-14T07:32:16+0000",
+      "dateStarted": "2021-09-14T14:43:09+0000",
+      "dateFinished": "2021-09-14T14:43:09+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:43283"
+    },
+    {
+      "text": "%md\nDownload and unpack MovieLens archeve\n------",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-14T14:43:13+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Download and unpack MovieLens archeve</h2>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631604750084_2075769661",
+      "id": "paragraph_1631604750084_2075769661",
+      "dateCreated": "2021-09-14T07:32:30+0000",
+      "dateStarted": "2021-09-14T14:43:13+0000",
+      "dateFinished": "2021-09-14T14:43:13+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43284"
+    },
+    {
+      "text": "%sh\n\nwget -q -O /tmp/ml-latest.zip https://files.grouplens.org/datasets/movielens/ml-latest-small.zip\necho \"Download Movielens ... \"\n\nunzip /tmp/ml-latest.zip -d /tmp/\necho \"Unpack ml-latest.zip ...\"\n\nif ! [[ -d /tmp/data/ ]]; then\n    mkdir /tmp/data\n    mkdir /tmp/data/movies\nelif ! [[ -d /tmp/data/movies ]]; then\n    mkdir /tmp/data/movies\nelif ! [[ -d /tmp/data/ratings ]]; then\n    mkdir /tmp/data/ratings\nfi\n\nif [[ -f /tmp/data/movies/movies.csv ]]; then\n    rm /tmp/data/movies/*\nfi\n\nif [[ -f /tmp/data/ratings/ratings.csv ]]; then\n    rm /tmp/data/ratings/*\nfi\n\nmv /tmp/ml-latest-small/movies.csv /tmp/data/movies/\nmv /tmp/ml-latest-small/ratings.csv /tmp/data/ratings/\n\nrm /tmp/ml-latest-small/*\nrmdir /tmp/ml-latest-small\n\necho \"Data files created!\"\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-14T14:44:06+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Download Movielens ... \nArchive:  /tmp/ml-latest.zip\n   creating: /tmp/ml-latest-small/\n  inflating: /tmp/ml-latest-small/links.csv  \n  inflating: /tmp/ml-latest-small/tags.csv  \n  inflating: /tmp/ml-latest-small/ratings.csv  \n  inflating: /tmp/ml-latest-small/README.txt  \n  inflating: /tmp/ml-latest-small/movies.csv  \nUnpack ml-latest.zip ...\nData files created!\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631604763742_1009876791",
+      "id": "paragraph_1631604763742_1009876791",
+      "dateCreated": "2021-09-14T07:32:43+0000",
+      "dateStarted": "2021-09-14T14:44:06+0000",
+      "dateFinished": "2021-09-14T14:44:06+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43285"
+    },
+    {
+      "text": "%sh\n\n\nif hadoop fs -test -d  /tmp/data/movies ; then \n    hadoop fs -rm -r -skipTrash /tmp/data/movies/*\n    hadoop fs -rm -r -skipTrash /tmp/data/movies\nfi\n\nif hadoop fs -test -d  /tmp/data/ratings ; then \n    hadoop fs -rm -r -skipTrash /tmp/data/ratings/*\n    hadoop fs -rm -r -skipTrash /tmp/data/ratings\nfi\n\nif hadoop fs -test -d  /tmp/data/output/get_movies ; then \n    hadoop fs -rm -r -skipTrash /tmp/data/output/get_movies/*\n    hadoop fs -rm -r -skipTrash /tmp/data/output/get_movies\n    hadoop fs -rm -r -skipTrash /tmp/data/output\nfi\n\nhdfs dfs -mkdir -p /tmp/data/output\n\nhdfs dfs -mkdir -p /tmp/data/movies\nhdfs dfs -put -f /tmp/data/movies/movies.csv /tmp/data/movies/\n\nhdfs dfs -mkdir -p /tmp/data/ratings\nhdfs dfs -put -f /tmp/data/ratings/ratings.csv /tmp/data/ratings/",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-14T14:44:11+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Deleted /tmp/data/movies/movies.csv\nDeleted /tmp/data/movies\nDeleted /tmp/data/ratings/ratings.csv\nDeleted /tmp/data/ratings\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631604796863_403215320",
+      "id": "paragraph_1631604796863_403215320",
+      "dateCreated": "2021-09-14T07:33:16+0000",
+      "dateStarted": "2021-09-14T14:44:11+0000",
+      "dateFinished": "2021-09-14T14:44:37+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43286"
+    },
+    {
+      "text": "%md\n\n__Create sql using hdfs__",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-14T12:20:03+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p><strong>Create sql using hdfs</strong></p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631604817723_544518923",
+      "id": "paragraph_1631604817723_544518923",
+      "dateCreated": "2021-09-14T07:33:37+0000",
+      "dateStarted": "2021-09-14T12:20:03+0000",
+      "dateFinished": "2021-09-14T12:20:03+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43287"
+    },
+    {
+      "text": "%sql\n\nDROP TABLE IF EXISTS moviesDB;\nCREATE TABLE moviesDB\n(movieId int, title string, genres string)\nusing csv\noptions(header = True, path = 'hdfs:///tmp/data/movies/movies.csv')\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-14T14:45:17+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631604865023_1525917523",
+      "id": "paragraph_1631604865023_1525917523",
+      "dateCreated": "2021-09-14T07:34:25+0000",
+      "dateStarted": "2021-09-14T14:45:17+0000",
+      "dateFinished": "2021-09-14T14:45:17+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43288"
+    },
+    {
+      "text": "%sql\n\nDROP TABLE IF EXISTS ratingsDB;\nCREATE TABLE ratingsDB\n(userId int, movieId int, rating Double, timestamp string)\nusing csv\noptions(header = True, path = 'hdfs:///tmp/data/ratings/ratings.csv')",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-14T14:45:29+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631606037448_1615982378",
+      "id": "paragraph_1631606037448_1615982378",
+      "dateCreated": "2021-09-14T07:53:57+0000",
+      "dateStarted": "2021-09-14T14:45:29+0000",
+      "dateFinished": "2021-09-14T14:45:30+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43289"
+    },
+    {
+      "text": "%sql\nDROP TABLE IF EXISTS normalise_movies;\n\ncreate table normalise_movies\nAS \n(\nSELECT \n    movieId,\n    REGEXP_EXTRACT(title, \"(.+)[ ]+[(](\\\\\\d{4})[)]\", 1) AS title,\n    REGEXP_EXTRACT(title, \"(.+)[ ]+[(](\\\\\\d{4})[)]\", 2) AS year,\n    EXPLODE(SPLIT(genres, \"[|]\")) AS genre\nFROM \n    moviesDB\nWHERE\n    REGEXP_EXTRACT(title, \"(.+)[ ]+[(](\\\\\\d{4})[)]\", 2) IS NOT Null\n)",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-15T06:40:44+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "userId": "string",
+                      "movieId": "string",
+                      "rating": "string",
+                      "timestamp": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=400",
+              "$$hashKey": "object:43575"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631613954332_1700316518",
+      "id": "paragraph_1631613954332_1700316518",
+      "dateCreated": "2021-09-14T10:05:54+0000",
+      "dateStarted": "2021-09-15T06:40:44+0000",
+      "dateFinished": "2021-09-15T06:40:46+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43290"
+    },
+    {
+      "text": "%sql\n\nDROP TABLE IF EXISTS filtered_movies;\n\ncreate table filtered_movies\nAS \n(\nSELECT \n    movieId,\n    title,\n    year,\n    genre\nFROM \n    normalise_movies\nWHERE\n   (title LIKE '%Love%') AND\n   (year <= 2005) AND\n   (year >= 1995) AND \n   ((genre = 'War') OR (genre = 'Drama'))\n    \n)\n            ",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-15T07:47:58+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {
+                    "columns": [
+                      {
+                        "name": "movieId0",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "title1",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "year2",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      },
+                      {
+                        "name": "genres3",
+                        "visible": true,
+                        "width": "*",
+                        "sort": {},
+                        "filters": [
+                          {}
+                        ],
+                        "pinned": ""
+                      }
+                    ],
+                    "scrollFocus": {},
+                    "selection": [],
+                    "grouping": {
+                      "grouping": [],
+                      "aggregations": [],
+                      "rowExpandedStates": {}
+                    },
+                    "treeView": {},
+                    "pagination": {
+                      "paginationCurrentPage": 1,
+                      "paginationPageSize": 250
+                    }
+                  },
+                  "tableColumnTypeState": {
+                    "names": {
+                      "movieId": "string",
+                      "title": "string",
+                      "year": "string",
+                      "genres": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=410",
+              "$$hashKey": "object:43587"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631608969382_354669435",
+      "id": "paragraph_1631608969382_354669435",
+      "dateCreated": "2021-09-14T08:42:49+0000",
+      "dateStarted": "2021-09-15T07:47:58+0000",
+      "dateFinished": "2021-09-15T07:47:59+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43291"
+    },
+    {
+      "text": "%sql\n\nDROP TABLE IF EXISTS avg_ratings;\n\ncreate table avg_ratings\nAS \n(\nSELECT \n    movieId,\n    avg(rating) AS rating\nFROM \n    ratingsDB\nGROUP BY\n   movieId\n    \n)",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-15T08:09:57+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "movieId": "string",
+                      "title": "string",
+                      "year": "string",
+                      "genre": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                },
+                "multiBarChart": {
+                  "rotate": {
+                    "degree": "-45"
+                  },
+                  "xLabelStatus": "default"
+                }
+              },
+              "commonSetting": {},
+              "keys": [
+                {
+                  "name": "movieId",
+                  "index": 0,
+                  "aggr": "sum"
+                }
+              ],
+              "groups": [],
+              "values": [
+                {
+                  "name": "title",
+                  "index": 1,
+                  "aggr": "sum"
+                }
+              ]
+            },
+            "helium": {}
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=412",
+              "$$hashKey": "object:43599"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631610300027_1001469325",
+      "id": "paragraph_1631610300027_1001469325",
+      "dateCreated": "2021-09-14T09:05:00+0000",
+      "dateStarted": "2021-09-15T08:09:57+0000",
+      "dateFinished": "2021-09-15T08:10:03+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43292"
+    },
+    {
+      "text": "%sql\n\nDROP TABLE IF EXISTS final_table_with_rank;\n\ncreate table final_table_with_rank\nAS \n(\nSELECT \n    fm.genre,\n    fm.title,\n    fm.year,\n    ar.rating,\n    ROW_NUMBER() OVER (PARTITION BY fm.genre ORDER BY fm.genre, ar.rating DESC, fm.year DESC, fm.title ASC) AS rank\nFROM \n    filtered_movies fm LEFT JOIN avg_ratings ar ON fm.movieId=ar.movieId\n)",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-15T12:48:40+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=424",
+              "$$hashKey": "object:43611"
+            },
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=425",
+              "$$hashKey": "object:43612"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631709317336_422907731",
+      "id": "paragraph_1631709317336_422907731",
+      "dateCreated": "2021-09-15T12:35:17+0000",
+      "dateStarted": "2021-09-15T12:48:40+0000",
+      "dateFinished": "2021-09-15T12:48:43+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43293"
+    },
+    {
+      "text": "%sql\n\nDROP TABLE IF EXISTS final_table;\n\ncreate table final_table\nAS \n(\nSELECT \n    genre,\n    title,\n    year,\n    rating\nFROM \n    final_table_with_rank\nWHERE\n    rank <= 5 \n)\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-15T12:48:56+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "genre": "string",
+                      "title": "string",
+                      "year": "string",
+                      "rating": "string",
+                      "runk": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=426",
+              "$$hashKey": "object:43626"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631613216412_1695737218",
+      "id": "paragraph_1631613216412_1695737218",
+      "dateCreated": "2021-09-14T09:53:36+0000",
+      "dateStarted": "2021-09-15T12:48:57+0000",
+      "dateFinished": "2021-09-15T12:48:57+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43294"
+    },
+    {
+      "text": "%sql\n\nSELECT\n    *\nFROM\n    final_table\nLIMIT\n    5",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-15T12:49:44+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "genre": "string",
+                      "title": "string",
+                      "year": "string",
+                      "rating": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "sql",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/sql"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "genre\ttitle\tyear\trating\nDrama\tAffair of Love, An (Liaison pornographique, Une)\t1999\t4.75\nDrama\tLovers of the Arctic Circle, The (Los Amantes del Círculo Polar)\t1998\t4.25\nDrama\tIn the Mood For Love (Fa yeung nin wa)\t2000\t4.214285714285714\nDrama\tLove Me If You Dare (Jeux d'enfants)\t2003\t4.1\nDrama\tDe-Lovely\t2004\t4.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=427",
+              "$$hashKey": "object:43662"
+            },
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=428",
+              "$$hashKey": "object:43663"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631620726725_1332416074",
+      "id": "paragraph_1631620726725_1332416074",
+      "dateCreated": "2021-09-14T11:58:46+0000",
+      "dateStarted": "2021-09-15T12:49:43+0000",
+      "dateFinished": "2021-09-15T12:49:43+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43295"
+    },
+    {
+      "text": "%spark\n\nval sqlDF = spark.sql(\"SELECT * FROM final_table\")\nsqlDF.write.format(\"csv\").save(\"hdfs:///tmp/data/output/sql.csv\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-15T13:33:03+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "text",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/text"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "\u001b[1m\u001b[34msqlDF\u001b[0m: \u001b[1m\u001b[32morg.apache.spark.sql.DataFrame\u001b[0m = [genre: string, title: string ... 2 more fields]\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=431",
+              "$$hashKey": "object:44181"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631710183624_500396139",
+      "id": "paragraph_1631710183624_500396139",
+      "dateCreated": "2021-09-15T12:49:43+0000",
+      "dateStarted": "2021-09-15T13:33:03+0000",
+      "dateFinished": "2021-09-15T13:33:04+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:43296"
+    },
+    {
+      "text": "\n\n\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-15T13:34:42+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631710625297_1187103345",
+      "id": "paragraph_1631710625297_1187103345",
+      "dateCreated": "2021-09-15T12:57:05+0000",
+      "status": "ERROR",
+      "$$hashKey": "object:43297",
+      "dateFinished": "2021-09-15T13:34:27+0000",
+      "dateStarted": "2021-09-15T13:34:25+0000",
+      "results": {
+        "code": "ERROR",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "cat: `/tmp/data/output/sql.csv': Is a directory\n"
+          },
+          {
+            "type": "TEXT",
+            "data": "ExitValue: 1"
+          }
+        ]
+      }
+    },
+    {
+      "text": "%sh\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-15T13:33:33+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631712813852_1244230683",
+      "id": "paragraph_1631712813852_1244230683",
+      "dateCreated": "2021-09-15T13:33:33+0000",
+      "status": "READY",
+      "focus": true,
+      "$$hashKey": "object:44196"
+    }
+  ],
+  "name": "spark_sql",
+  "id": "2GENQJNVK",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview2",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {},
+  "path": "/spark_sql"
+}

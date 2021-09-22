@@ -1,0 +1,971 @@
+﻿{
+  "paragraphs": [
+    {
+      "text": "%md\n<span style=\"color:red\"> __Requirements:__ </span>\n\n   - <span style=\"color:red\">Ubuntu 18.04 LTS</span>\n   - <span style=\"color:red\">Hadoop 2.10</span>\n   - <span style=\"color:red\">Spark 2.4</span>",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:26+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p><span style=\"color:red\"> <strong>Requirements:</strong> </span></p>\n<ul>\n<li><span style=\"color:red\">Ubuntu 18.04 LTS</span></li>\n<li><span style=\"color:red\">Hadoop 2.10</span></li>\n<li><span style=\"color:red\">Spark 2.4</span></li>\n</ul>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631271042485_585827768",
+      "id": "paragraph_1631271042485_585827768",
+      "dateCreated": "2021-09-10T10:50:42+0000",
+      "dateStarted": "2021-09-13T16:37:26+0000",
+      "dateFinished": "2021-09-13T16:37:26+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:51625"
+    },
+    {
+      "text": "%md\nDownload and unpack MovieLens archeve\n------",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:26+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<h2>Download and unpack MovieLens archeve</h2>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631388968834_785449697",
+      "id": "paragraph_1631388968834_785449697",
+      "dateCreated": "2021-09-11T19:36:08+0000",
+      "dateStarted": "2021-09-13T16:37:26+0000",
+      "dateFinished": "2021-09-13T16:37:26+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51626"
+    },
+    {
+      "text": "%sh\n\nwget -q -O /tmp/ml-latest.zip https://files.grouplens.org/datasets/movielens/ml-latest-small.zip\necho \"Download Movielens ... \"\n\nunzip /tmp/ml-latest.zip -d /tmp/\necho \"Unpack ml-latest.zip ...\"\n\nif ! [[ -d /tmp/data/ ]]; then\n    mkdir /tmp/data\n    mkdir /tmp/data/movies\nelif ! [[ -d /tmp/data/movies ]]; then\n    mkdir /tmp/data/movies\nelif ! [[ -d /tmp/data/ratings ]]; then\n    mkdir /tmp/data/ratings\nfi\n\nif [[ -f /tmp/data/movies/movies.csv ]]; then\n    rm /tmp/data/movies/*\nfi\n\nif [[ -f /tmp/data/ratings/ratings.csv ]]; then\n    rm /tmp/data/ratings/*\nfi\n\nmv /tmp/ml-latest-small/movies.csv /tmp/data/movies/\nmv /tmp/ml-latest-small/ratings.csv /tmp/data/ratings/\n\nrm /tmp/ml-latest-small/*\nrmdir /tmp/ml-latest-small\n\necho \"Data files created!\"",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:26+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh",
+        "editorHide": false,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Download Movielens ... \nArchive:  /tmp/ml-latest.zip\n   creating: /tmp/ml-latest-small/\n  inflating: /tmp/ml-latest-small/links.csv  \n  inflating: /tmp/ml-latest-small/tags.csv  \n  inflating: /tmp/ml-latest-small/ratings.csv  \n  inflating: /tmp/ml-latest-small/README.txt  \n  inflating: /tmp/ml-latest-small/movies.csv  \nUnpack ml-latest.zip ...\nData files created!\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631271148320_332112637",
+      "id": "paragraph_1631271148320_332112637",
+      "dateCreated": "2021-09-10T10:52:28+0000",
+      "dateStarted": "2021-09-13T16:37:26+0000",
+      "dateFinished": "2021-09-13T16:37:27+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51627"
+    },
+    {
+      "text": "%sh\n\nif hadoop fs -test -d  /tmp/data/movies ; then \n    hadoop fs -rm -r -skipTrash /tmp/data/movies/*\n    hadoop fs -rm -r -skipTrash /tmp/data/movies\nfi\n\nif hadoop fs -test -d  /tmp/data/ratings ; then \n    hadoop fs -rm -r -skipTrash /tmp/data/ratings/*\n    hadoop fs -rm -r -skipTrash /tmp/data/ratings\nfi\n\nif hadoop fs -test -d  /tmp/data/output/get_movies ; then \n    hadoop fs -rm -r -skipTrash /tmp/data/output/get_movies/*\n    hadoop fs -rm -r -skipTrash /tmp/data/output/get_movies\n    hadoop fs -rm -r -skipTrash /tmp/data/output\nfi\n\nhdfs dfs -mkdir -p /tmp/data/output\n\nhdfs dfs -mkdir -p /tmp/data/movies\nhdfs dfs -put -f /tmp/data/movies/movies.csv /tmp/data/movies/\n\nhdfs dfs -mkdir -p /tmp/data/ratings\nhdfs dfs -put -f /tmp/data/ratings/ratings.csv /tmp/data/ratings/",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:27+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "Deleted /tmp/data/movies/movies.csv\nDeleted /tmp/data/movies\nDeleted /tmp/data/ratings/ratings.csv\nDeleted /tmp/data/ratings\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631271722898_1661290413",
+      "id": "paragraph_1631271722898_1661290413",
+      "dateCreated": "2021-09-10T11:02:02+0000",
+      "dateStarted": "2021-09-13T16:37:27+0000",
+      "dateFinished": "2021-09-13T16:37:53+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51628"
+    },
+    {
+      "text": "%md\n\n__Set params__",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:53+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p><strong>Set params</strong></p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631541676507_371642951",
+      "id": "paragraph_1631541676507_371642951",
+      "dateCreated": "2021-09-13T14:01:16+0000",
+      "dateStarted": "2021-09-13T16:37:54+0000",
+      "dateFinished": "2021-09-13T16:37:54+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51629"
+    },
+    {
+      "text": "%pyspark\n\npath_movies = 'hdfs:///tmp/data/movies/movies.csv'\npath_ratings = 'hdfs:///tmp/data/ratings/ratings.csv'\npath_output = 'hdfs:///tmp/data/output/get_movies'\n\n\nexp, year_from, year_to, genres, n = 'Love', 2000, 2005, set({'War', 'Drama'}), 5\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:54+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631283067667_441121085",
+      "id": "paragraph_1631283067667_441121085",
+      "dateCreated": "2021-09-10T14:11:07+0000",
+      "dateStarted": "2021-09-13T16:37:54+0000",
+      "dateFinished": "2021-09-13T16:37:54+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51630"
+    },
+    {
+      "text": "%md \n\n__Downloading the movies.csv file and filtering by year and keyword__",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:54+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p><strong>Downloading the movies.csv file and filtering by year and keyword</strong></p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631389016321_1707531981",
+      "id": "paragraph_1631389016321_1707531981",
+      "dateCreated": "2021-09-11T19:36:56+0000",
+      "dateStarted": "2021-09-13T16:37:54+0000",
+      "dateFinished": "2021-09-13T16:37:54+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51631"
+    },
+    {
+      "text": "%pyspark\n\ndf_movies = spark.read.format(\"csv\").options(header = True).load(path_movies)\n\ndf_movies.show(5)",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:54+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TEXT",
+            "data": "+-------+--------------------+--------------------+\n|movieId|               title|              genres|\n+-------+--------------------+--------------------+\n|      1|    Toy Story (1995)|Adventure|Animati...|\n|      2|      Jumanji (1995)|Adventure|Childre...|\n|      3|Grumpier Old Men ...|      Comedy|Romance|\n|      4|Waiting to Exhale...|Comedy|Drama|Romance|\n|      5|Father of the Bri...|              Comedy|\n+-------+--------------------+--------------------+\nonly showing top 5 rows\n\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=332",
+              "$$hashKey": "object:55951"
+            },
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=333",
+              "$$hashKey": "object:55952"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631283395107_1901886277",
+      "id": "paragraph_1631283395107_1901886277",
+      "dateCreated": "2021-09-10T14:16:35+0000",
+      "dateStarted": "2021-09-13T16:37:54+0000",
+      "dateFinished": "2021-09-13T16:37:54+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51632"
+    },
+    {
+      "text": "%md\n\n__Transform movies' data__",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:54+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p><strong>Transform movies&rsquo; data</strong></p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631541743018_1634019028",
+      "id": "paragraph_1631541743018_1634019028",
+      "dateCreated": "2021-09-13T14:02:23+0000",
+      "dateStarted": "2021-09-13T16:37:54+0000",
+      "dateFinished": "2021-09-13T16:37:54+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51633"
+    },
+    {
+      "text": "%pyspark\n\nimport pyspark.sql.functions as f\nfrom pyspark.sql.window import Window\nimport re\n\ndf_movies = df_movies.filter(~ df_movies.genres.startswith(\"(\"))\n\ndf_movies_transform = df_movies.select(\n                                        col(\"movieId\"),\n                                        f.split(col(\"genres\"), \"\\\\|\").alias(\"genres\"),\n                                        f.regexp_extract(col(\"title\"), r\"(.+?)(?=\\(\\d{4}\\))\", 1).alias(\"title\"),\n                                        f.regexp_extract(col(\"title\"), r\"(?<=\\()(\\d{4})(?=\\))\", 1).alias(\"year\").cast(\"int\")\n                                        )",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:55+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631283489632_1457082325",
+      "id": "paragraph_1631283489632_1457082325",
+      "dateCreated": "2021-09-10T14:18:09+0000",
+      "dateStarted": "2021-09-13T16:37:55+0000",
+      "dateFinished": "2021-09-13T16:37:55+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51634"
+    },
+    {
+      "text": "%pyspark\n\n@udf(\"boolean\")\ndef contain(column):\n    \"\"\"\n    The function returns true or false depending on whether there are genres of the specified genre or not\n    \"\"\"\n    \n    for genre in column:\n        if genre in genres:\n            return True\n        else:\n            return False",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:55+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631545466669_859732843",
+      "id": "paragraph_1631545466669_859732843",
+      "dateCreated": "2021-09-13T15:04:26+0000",
+      "dateStarted": "2021-09-13T16:37:55+0000",
+      "dateFinished": "2021-09-13T16:37:55+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51635"
+    },
+    {
+      "text": "%md\n\n__Filtering data by conditions__",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:55+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p><strong>Filtering data by conditions</strong></p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631547181247_447307162",
+      "id": "paragraph_1631547181247_447307162",
+      "dateCreated": "2021-09-13T15:33:01+0000",
+      "dateStarted": "2021-09-13T16:37:55+0000",
+      "dateFinished": "2021-09-13T16:37:55+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51636"
+    },
+    {
+      "text": "%pyspark\n\nif exp:\n    df_movies_transform = df_movies_transform.filter(df_movies_transform.title.rlike(exp))\nif year_from:\n    df_movies_transform = df_movies_transform.filter(year_from <= df_movies_transform.year)\nif year_to:\n    df_movies_transform = df_movies_transform.filter(year_to >= df_movies_transform.year)\nif genres:\n    df_movies_transform = df_movies_transform.filter(contain(\"genres\"))\n    \nlist_of_movieId = set([movieId[0] for movieId in df_movies_transform.select(df_movies_transform.movieId).collect()])",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:55+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=334",
+              "$$hashKey": "object:56017"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631541830979_2075870812",
+      "id": "paragraph_1631541830979_2075870812",
+      "dateCreated": "2021-09-13T14:03:50+0000",
+      "dateStarted": "2021-09-13T16:37:55+0000",
+      "dateFinished": "2021-09-13T16:37:55+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51637"
+    },
+    {
+      "text": "%md\n\n__Download the ratings.csv file and calculating the average rating__",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:55+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p><strong>Download the ratings.csv file and calculating the average rating</strong></p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631389176604_493163158",
+      "id": "paragraph_1631389176604_493163158",
+      "dateCreated": "2021-09-11T19:39:36+0000",
+      "dateStarted": "2021-09-13T16:37:55+0000",
+      "dateFinished": "2021-09-13T16:37:55+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51638"
+    },
+    {
+      "text": "%pyspark\n\ndf_ratings = spark.read.format(\"csv\").options(header = True).load(path_ratings)\n\ndf_ratings = df_ratings.filter(df_ratings.movieId.isin(list_of_movieId))\n\ndf_ratings_transform = df_ratings.select(col(\"movieId\"), col(\"rating\").cast(\"int\"))\n\ndf_rating_avg = df_ratings_transform.groupBy(\"movieId\").avg(\"rating\")\n\ndf_rating_avg = df_rating_avg.select(col(\"movieId\").alias(\"movieId\"), col(\"avg(rating)\").alias(\"rating\"))",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:56+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=335",
+              "$$hashKey": "object:56107"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631363446097_2084084630",
+      "id": "paragraph_1631363446097_2084084630",
+      "dateCreated": "2021-09-11T12:30:46+0000",
+      "dateStarted": "2021-09-13T16:37:56+0000",
+      "dateFinished": "2021-09-13T16:37:56+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51639"
+    },
+    {
+      "text": "%md\n\n__Data frames are combined, genres are divided by lines, sorted and filtered by genres and the number of issues__\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:56+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "markdown",
+          "editOnDblClick": true,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/markdown",
+        "editorHide": true,
+        "tableHide": false
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "HTML",
+            "data": "<div class=\"markdown-body\">\n<p><strong>Data frames are combined, genres are divided by lines, sorted and filtered by genres and the number of issues</strong></p>\n\n</div>"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631389296043_1106990841",
+      "id": "paragraph_1631389296043_1106990841",
+      "dateCreated": "2021-09-11T19:41:36+0000",
+      "dateStarted": "2021-09-13T16:37:56+0000",
+      "dateFinished": "2021-09-13T16:37:56+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51640"
+    },
+    {
+      "text": "%pyspark\n\n\ndf = df_movies_transform.join(df_rating_avg,  on = 'movieId', how = 'left').drop(\"movieId\")\n\ndf = df.select(\n            f.explode(col(\"genres\")).alias(\"genre\"),\n            col(\"title\"),\n            col(\"year\"),\n            col(\"rating\"))\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:56+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631376245541_1809269368",
+      "id": "paragraph_1631376245541_1809269368",
+      "dateCreated": "2021-09-11T16:04:05+0000",
+      "dateStarted": "2021-09-13T16:37:56+0000",
+      "dateFinished": "2021-09-13T16:37:56+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51641"
+    },
+    {
+      "text": "%pyspark\n\nif genres:\n    df = df.filter(df.genre.isin(genres))\n\ndf = df.sort(df.genre, df.rating.desc(), df.year.desc(), df.title)\n\nif n:\n    df = df.select(\"genre\", \"title\", \"year\", \"rating\", f.row_number().over(Window.partitionBy().orderBy(df.genre)).alias(\"row_num\"))\n    df = df.filter(df.row_num <= n).drop(\"row_num\")",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:56+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "scala",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/scala"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631550705078_1477976540",
+      "id": "paragraph_1631550705078_1477976540",
+      "dateCreated": "2021-09-13T16:31:45+0000",
+      "status": "FINISHED",
+      "focus": true,
+      "$$hashKey": "object:53620",
+      "dateFinished": "2021-09-13T16:37:56+0000",
+      "dateStarted": "2021-09-13T16:37:56+0000",
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      }
+    },
+    {
+      "text": "%pyspark\n\ndf.write.format(\"csv\").save(path_output)",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:56+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": []
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=336",
+              "$$hashKey": "object:56155"
+            },
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=337",
+              "$$hashKey": "object:56156"
+            },
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=338",
+              "$$hashKey": "object:56157"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631381578717_1324601326",
+      "id": "paragraph_1631381578717_1324601326",
+      "dateCreated": "2021-09-11T17:32:58+0000",
+      "dateStarted": "2021-09-13T16:37:57+0000",
+      "dateFinished": "2021-09-13T16:37:58+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51642"
+    },
+    {
+      "text": "%pyspark\nprint(\"%table genre\\ttitle\\tyear\\trating\")\nfor genre, title, year, rating in df.collect():\n    print(\"{}\\t{}\\t{}\\t{}\".format(genre, title, year, rating))\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-13T16:37:58+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {
+          "0": {
+            "graph": {
+              "mode": "table",
+              "height": 300,
+              "optionOpen": false,
+              "setting": {
+                "table": {
+                  "tableGridState": {},
+                  "tableColumnTypeState": {
+                    "names": {
+                      "genre": "string",
+                      "title": "string",
+                      "year": "string",
+                      "rating": "string"
+                    },
+                    "updated": false
+                  },
+                  "tableOptionSpecHash": "[{\"name\":\"useFilter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable filter for columns\"},{\"name\":\"showPagination\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable pagination for better navigation\"},{\"name\":\"showAggregationFooter\",\"valueType\":\"boolean\",\"defaultValue\":false,\"widget\":\"checkbox\",\"description\":\"Enable a footer for displaying aggregated values\"}]",
+                  "tableOptionValue": {
+                    "useFilter": false,
+                    "showPagination": false,
+                    "showAggregationFooter": false
+                  },
+                  "updated": false,
+                  "initialized": false
+                }
+              },
+              "commonSetting": {}
+            }
+          }
+        },
+        "editorSetting": {
+          "language": "python",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": true
+        },
+        "editorMode": "ace/mode/python"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "results": {
+        "code": "SUCCESS",
+        "msg": [
+          {
+            "type": "TABLE",
+            "data": "genre\ttitle\tyear\trating\nDrama\tDe-Lovely \t2004\t4.0\nDrama\tLove Me If You Dare (Jeux d'enfants) \t2003\t4.0\nDrama\tIn the Mood For Love (Fa yeung nin wa) \t2000\t4.0\nDrama\tAmores Perros (Love's a Bitch) \t2000\t3.869565217391304\nDrama\tLove Liza \t2002\t3.0\n"
+          }
+        ]
+      },
+      "apps": [],
+      "runtimeInfos": {
+        "jobUrl": {
+          "propertyName": "jobUrl",
+          "label": "SPARK JOB",
+          "tooltip": "View in Spark web UI",
+          "group": "spark",
+          "values": [
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=339",
+              "$$hashKey": "object:56639"
+            },
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=340",
+              "$$hashKey": "object:56640"
+            },
+            {
+              "jobUrl": "http://cluster-7d11-m.us-central1-b.c.exalted-splicer-323411.internal:32875/jobs/job?id=341",
+              "$$hashKey": "object:56641"
+            }
+          ],
+          "interpreterSettingId": "spark"
+        }
+      },
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631383601661_469795461",
+      "id": "paragraph_1631383601661_469795461",
+      "dateCreated": "2021-09-11T18:06:41+0000",
+      "dateStarted": "2021-09-13T16:38:02+0000",
+      "dateFinished": "2021-09-13T16:38:04+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51643"
+    },
+    {
+      "text": "%sh\n",
+      "user": "anonymous",
+      "dateUpdated": "2021-09-11T20:29:22+0000",
+      "config": {
+        "colWidth": 12,
+        "fontSize": 9,
+        "enabled": true,
+        "results": {},
+        "editorSetting": {
+          "language": "sh",
+          "editOnDblClick": false,
+          "completionKey": "TAB",
+          "completionSupport": false
+        },
+        "editorMode": "ace/mode/sh"
+      },
+      "settings": {
+        "params": {},
+        "forms": {}
+      },
+      "apps": [],
+      "runtimeInfos": {},
+      "progressUpdateIntervalMs": 500,
+      "jobName": "paragraph_1631387804053_415651327",
+      "id": "paragraph_1631387804053_415651327",
+      "dateCreated": "2021-09-11T19:16:44+0000",
+      "status": "FINISHED",
+      "$$hashKey": "object:51644"
+    }
+  ],
+  "name": "pyspark",
+  "id": "2GG8T4FBP",
+  "defaultInterpreterGroup": "spark",
+  "version": "0.9.0-preview2",
+  "noteParams": {},
+  "noteForms": {},
+  "angularObjects": {},
+  "config": {
+    "isZeppelinNotebookCronEnable": false,
+    "looknfeel": "default",
+    "personalizedMode": "false"
+  },
+  "info": {
+    "isRunning": false
+  },
+  "path": "/pyspark"
+}
